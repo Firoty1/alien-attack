@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bu6ktknp000c5"]
+
+[ext_resource type="Texture2D" uid="uid://cy4qv5nbdxs8r" path="res://icon.svg" id="1_0tomg"]
+[ext_resource type="Script" uid="uid://dsqv7lq3sv5oj" path="res://Scripts/asteroid.gd" id="1_a2bka"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tomg"]
+size = Vector2(36, 36)
+
+[node name="Asteroid" type="Area2D" unique_id=1867598983]
+script = ExtResource("1_a2bka")
+MinSpeed = 100
+MaxSpeed = 200
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1462793782]
+modulate = Color(0.17641911, 0.17641908, 0.17641908, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_0tomg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1978991209]
+shape = SubResource("RectangleShape2D_0tomg")

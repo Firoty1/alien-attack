@@ -1,8 +1,27 @@
 [gd_scene format=3 uid="uid://b3h1g3o374cp5"]
 
 [ext_resource type="PackedScene" uid="uid://dqfyf266ojh0n" path="res://Scenes/player.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://cc4k5x3w8i1ss" path="res://Scripts/game.gd" id="1_qxrlw"]
+
+[sub_resource type="Curve2D" id="Curve2D_ebmjs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -16, -16, 0, 0, 0, 0, 1168, -16, 0, 0, 0, 0, 1168, 664, 0, 0, 0, 0, -16, 664, 0, 0, 0, 0, -16, -16)
+}
+point_count = 5
 
 [node name="Game" type="Node2D" unique_id=294188740]
+script = ExtResource("1_qxrlw")
 
 [node name="Player" parent="." unique_id=1028689561 instance=ExtResource("1_ebmjs")]
 position = Vector2(606, 371)
+
+[node name="SpawningArea" type="Path2D" parent="." unique_id=1995619719]
+curve = SubResource("Curve2D_ebmjs")
+
+[node name="SpawnPosition" type="PathFollow2D" parent="SpawningArea" unique_id=320427334]
+position = Vector2(-16, -16)
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=879541210]
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
