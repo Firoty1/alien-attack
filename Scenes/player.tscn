@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dqfyf266ojh0n"]
+
+[ext_resource type="Script" uid="uid://b8k4602uaiax0" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cy4qv5nbdxs8r" path="res://icon.svg" id="1_v0iea"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr4i2"]
+size = Vector2(60, 124)
+
+[node name="Player" type="CharacterBody2D" unique_id=1028689561]
+script = ExtResource("1_cvnsp")
+acceleration = 8.0
+max_speed = 350.0
+rotation_speed = 150.0
+TurnOrDirectionalMovement = "Turn"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1935054842]
+scale = Vector2(0.5, 1)
+texture = ExtResource("1_v0iea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1495606655]
+shape = SubResource("RectangleShape2D_qr4i2")
