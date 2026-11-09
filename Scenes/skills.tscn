@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dcvc78gg34yt"]
+
+[node name="skills" type="Control" unique_id=944909823]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="." unique_id=335022658]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.007
+anchor_bottom = 0.001
+offset_left = 26.0
+offset_top = 39.0
+offset_right = 275.936
+offset_bottom = 107.352
+theme_override_font_sizes/font_size = 50
+text = "SKILL TREE"
+
+[node name="Tree" type="Tree" parent="." unique_id=1334385732]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 17.0
