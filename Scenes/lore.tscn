@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://7u0jul6edpb5"]
+
+[ext_resource type="Script" uid="uid://bcg3irxbybm1q" path="res://lore.gd" id="1_oqjcs"]
+
+[node name="lore" type="Control" unique_id=654114113]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oqjcs")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1800425161]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 1147.0
+offset_bottom = 523.0
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+bbcode_enabled = true
+text = "You are in a [b]spaceship[/b] that got [i]blown up[/i] by [b]the ghosts of magical aliens[/b] that you once slaughtered! Your crewmate is fixing it, but the aliens are slinging [b]asteroids[/b] at your ship, so you'll have to navigate around the asteroids. It'll take sixty seconds to reactivate the safety shields, but we'll probably need to repeat that process a few times due to alien interference. At least you'll get some cool buffs from it. Beware: the ghosts are [b]spooky[/b]!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="ok" type="Button" parent="." unique_id=695125206]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = 186.0
+offset_right = 111.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 70
+text = "CAN I LAUNCH IT ALREADY?"
+
+[node name="Label" type="Label" parent="." unique_id=2012221909]
+visible = false
+layout_mode = 0
+offset_left = 519.0
+offset_top = 480.0
+offset_right = 610.0
+offset_bottom = 570.0
+theme_override_font_sizes/font_size = 65
+text = "No"
+
+[node name="Button" type="Button" parent="." unique_id=597109417]
+visible = false
+layout_mode = 0
+offset_left = 521.0
+offset_top = 579.0
+offset_right = 659.0
+offset_bottom = 638.0
+theme_override_font_sizes/font_size = 37
+text = "Launch"
+
+[connection signal="pressed" from="ok" to="." method="_on_ok_pressed"]
