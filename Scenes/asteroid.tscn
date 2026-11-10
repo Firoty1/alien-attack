@@ -7,6 +7,8 @@
 size = Vector2(36, 36)
 
 [node name="Asteroid" type="Area2D" unique_id=1867598983]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_a2bka")
 MinSpeed = 100
 MaxSpeed = 200
