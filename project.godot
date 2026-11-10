@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="AlienAttack"
-run/main_scene="uid://b3h1g3o374cp5"
+run/main_scene="uid://cuy61wj64gp5b"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Manager="*uid://cessdef5fgel8"
 
 [display]
 

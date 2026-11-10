@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7u0jul6edpb5"]
 
-[ext_resource type="Script" uid="uid://bcg3irxbybm1q" path="res://lore.gd" id="1_oqjcs"]
+[ext_resource type="Script" uid="uid://bcg3irxbybm1q" path="res://Scripts/lore.gd" id="1_oqjcs"]
 
 [node name="lore" type="Control" unique_id=654114113]
 layout_mode = 3
@@ -63,3 +63,4 @@ theme_override_font_sizes/font_size = 37
 text = "Launch"
 
 [connection signal="pressed" from="ok" to="." method="_on_ok_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

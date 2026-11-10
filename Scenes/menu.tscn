@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cuy61wj64gp5b"]
 
-[ext_resource type="Script" uid="uid://0x0eevugsjl8" path="res://menu.gd" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://0x0eevugsjl8" path="res://Scripts/menu.gd" id="1_1rerr"]
 
 [node name="menu" type="Control" unique_id=1507033168]
 layout_mode = 3
@@ -50,4 +50,5 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
 text = "BLOW UP"
 
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
