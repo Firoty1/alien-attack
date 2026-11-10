@@ -9,3 +9,7 @@ func _process(delta: float) -> void:
 func _on_ok_pressed() -> void:
 	$Label.visible = true
 	$ok.visible = false
+
+
+func _on_button_pressed():
+	Manager.SceneChange("Game")
