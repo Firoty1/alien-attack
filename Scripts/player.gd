@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var rotation_speed: float
 #Make TurnOrDirectionalMovement Turn for turn movement and Directional for directional movement
 @export var TurnOrDirectionalMovement: String
+var Lives = 3
+var Invincible = false
 
 
 #Turn left/right and move forward/backward
@@ -36,3 +38,27 @@ func _physics_process(delta):
 		DirectionalMovement(delta)
 	
 	move_and_slide()
+
+
+func HitObstacle(area):
+	Lives -= 1
+	$BlinkTimer.start()
+	$InvincibilityTimer.start()
+	Invincible = true
+	print(Lives)
+
+
+func _on_invincibility_timer_timeout():
+	$Area2D/CollisionShape2D.disabled = false
+	Invincible = false
+
+
+func _on_blink_timer_timeout():
+	$BlinkTimer.start()
+	if modulate.a8 == 255:
+		modulate.a8 = 100
+	else: 
+		modulate.a8 = 255
+	if !Invincible:
+		modulate.a8 = 255
+		$BlinkTimer.stop()
