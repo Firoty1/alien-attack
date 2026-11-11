@@ -24,4 +24,10 @@ position = Vector2(-16, -16)
 [node name="SpawnTimer" type="Timer" parent="." unique_id=879541210]
 autostart = true
 
+[node name="Despawn" type="StaticBody2D" parent="." unique_id=217039826]
+collision_layer = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Despawn" unique_id=748322000]
+polygon = PackedVector2Array(1152, 0, 1152, 648, 0, 648, 0, 0, 0, -16, -16, -16, -16, 664, 1168, 664, 1168, -16, 0, -16, 0, 0)
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

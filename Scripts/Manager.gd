@@ -2,6 +2,9 @@ extends Node
 
 var Lv = 1
 var Points = 0
+var bulletspeed = 300
+var BulletPierce = 1
+var first = true
 
 func SceneChange(Scene):
 	if Scene == "Game":
@@ -12,3 +15,5 @@ func SceneChange(Scene):
 		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	elif Scene == "Skill":
 		get_tree().change_scene_to_file("res://Scenes/skills.tscn")
+	elif Scene == "End":
+		get_tree().change_scene_to_file("res://Scenes/end.tscn")
