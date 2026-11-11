@@ -5,6 +5,8 @@ var AsteroidChance = 100
 var Spawns = 1
 const ASTEROID = preload("uid://bu6ktknp000c5")
 
+
+
 func _on_spawn_timer_timeout():
 	var SpawnRNG = RandomNumberGenerator.new()
 	var Spawn = ["Asteroid", "Ghost"]
@@ -17,7 +19,6 @@ func _on_spawn_timer_timeout():
 			pass
 
 func SpawnAsteroid():
-	print("a")
 	$SpawningArea/SpawnPosition.progress_ratio = randf_range(0,1)
 	var AsteroidPosition = $SpawningArea/SpawnPosition.position
 	var AsteroidDirection = AsteroidPosition.angle_to_point($Player.position) + randf_range(-PI/5,PI/5)

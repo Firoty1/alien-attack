@@ -8,7 +8,7 @@ size = Vector2(36, 36)
 
 [node name="Asteroid" type="Area2D" unique_id=1867598983]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 12
 script = ExtResource("1_a2bka")
 MinSpeed = 100
 MaxSpeed = 200
@@ -20,3 +20,6 @@ texture = ExtResource("1_0tomg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1978991209]
 shape = SubResource("RectangleShape2D_0tomg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

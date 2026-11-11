@@ -1,7 +1,11 @@
 extends Control
 
+func _ready():
+	if !Manager.first:
+		$Button.visible = true
+
 func _process(delta: float) -> void:
-	$RichTextLabel.visible_ratio += .001
+	$RichTextLabel.visible_ratio += .002
 	if $RichTextLabel.visible_ratio == 1:
 		$Button.visible = true
 

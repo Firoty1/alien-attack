@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var TurnOrDirectionalMovement: String
 var Lives = 3
 var Invincible = false
+const BULLET = preload("uid://b5wsdkyge037e")
 
 
 #Turn left/right and move forward/backward
@@ -37,11 +38,24 @@ func _physics_process(delta):
 	elif TurnOrDirectionalMovement == "Directional":
 		DirectionalMovement(delta)
 	
+	if Input.is_action_pressed("shoot"):
+		ShootBullets()
+	
 	move_and_slide()
 
+func ShootBullets(direction = position.direction_to(get_global_mouse_position())):
+	var bullets = BULLET.instantiate()
+	get_parent().add_child(bullets)
+	bullets.Speed =  Manager.bulletspeed
+	bullets.position = position
+	bullets.direction = direction
+	bullets.Pierces = Manager.BulletPierce
+	bullets.Shoot()
 
-func HitObstacle(area):
+func HitObstacle(_area):
 	Lives -= 1
+	if Lives == 0:
+		Manager.SceneChange("End")
 	$BlinkTimer.start()
 	$InvincibilityTimer.start()
 	Invincible = true
