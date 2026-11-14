@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b3h1g3o374cp5"]
+[gd_scene load_steps=4 format=3 uid="uid://b3h1g3o374cp5"]
 
 [ext_resource type="PackedScene" uid="uid://dqfyf266ojh0n" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cc4k5x3w8i1ss" path="res://Scripts/game.gd" id="1_qxrlw"]
@@ -9,25 +9,25 @@ _data = {
 }
 point_count = 5
 
-[node name="Game" type="Node2D" unique_id=294188740]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_qxrlw")
 
-[node name="Player" parent="." unique_id=1028689561 instance=ExtResource("1_ebmjs")]
+[node name="Player" parent="." instance=ExtResource("1_ebmjs")]
 position = Vector2(606, 371)
 
-[node name="SpawningArea" type="Path2D" parent="." unique_id=1995619719]
+[node name="SpawningArea" type="Path2D" parent="."]
 curve = SubResource("Curve2D_ebmjs")
 
-[node name="SpawnPosition" type="PathFollow2D" parent="SpawningArea" unique_id=320427334]
+[node name="SpawnPosition" type="PathFollow2D" parent="SpawningArea"]
 position = Vector2(-16, -16)
 
-[node name="SpawnTimer" type="Timer" parent="." unique_id=879541210]
+[node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Despawn" type="StaticBody2D" parent="." unique_id=217039826]
+[node name="Despawn" type="StaticBody2D" parent="."]
 collision_layer = 8
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Despawn" unique_id=748322000]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Despawn"]
 polygon = PackedVector2Array(1152, 0, 1152, 648, 0, 648, 0, 0, 0, -16, -16, -16, -16, 664, 1168, 664, 1168, -16, 0, -16, 0, 0)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

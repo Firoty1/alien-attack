@@ -4,6 +4,7 @@ var Lv = 1
 var Points = 0
 var bulletspeed = 300
 var BulletPierce = 1
+#Keeps track of if it's the first time playing
 var first = true
 
 func SceneChange(Scene):
