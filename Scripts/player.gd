@@ -11,36 +11,16 @@ const BULLET = preload("uid://b5wsdkyge037e")
 
 
 #Turn left/right and move forward/backward
-func TurnMovement(delta):
-	var input_vector := Vector2(0, Input.get_axis("forward","reverse"))
-	if input_vector.y == 0:
-		velocity = velocity.move_toward(Vector2.ZERO, 3)
-		
-	velocity += input_vector.rotated(rotation) * acceleration
-	velocity = velocity.limit_length(max_speed)
-	
-	if Input.is_action_pressed("left"):
-		rotate(deg_to_rad(-rotation_speed * delta))
-	if Input.is_action_pressed("right"):
-		rotate(deg_to_rad(rotation_speed * delta))
 
 #wasd movement
 func DirectionalMovement(delta):
 	var direction = Input.get_vector("left","right","up","down")
 	velocity = direction * max_speed * delta * 75
-	
-
 
 func _physics_process(delta):
-	#This lets us decide which movement type we want by testing both of them
-	if TurnOrDirectionalMovement == "Turn":
-		TurnMovement(delta)
-	elif TurnOrDirectionalMovement == "Directional":
-		DirectionalMovement(delta)
-	
+	DirectionalMovement(delta)
 	if Input.is_action_pressed("shoot"):
 		ShootBullets()
-	
 	move_and_slide()
 
 func ShootBullets(direction = position.direction_to(get_global_mouse_position())):
