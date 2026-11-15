@@ -16,6 +16,13 @@ const BULLET = preload("uid://b5wsdkyge037e")
 func DirectionalMovement(delta):
 	var direction = Input.get_vector("left","right","up","down")
 	velocity = direction * max_speed * delta * 75
+	
+	rotation = direction.angle() + PI/2 if direction != Vector2.ZERO else rotation
+	
+	if velocity == Vector2.ZERO:
+		$Sprite2D.animation = "Still"
+	else:
+		$Sprite2D.animation = "Moving"
 
 func _physics_process(delta):
 	DirectionalMovement(delta)
