@@ -22,6 +22,7 @@ curve = SubResource("Curve2D_ebmjs")
 position = Vector2(-16, -16)
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=657853785]
+wait_time = 0.6
 autostart = true
 
 [node name="Despawn" type="StaticBody2D" parent="." unique_id=734635513]

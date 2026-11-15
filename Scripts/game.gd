@@ -21,7 +21,7 @@ func _on_spawn_timer_timeout():
 func SpawnAsteroid():
 	$SpawningArea/SpawnPosition.progress_ratio = randf_range(0,1)
 	var AsteroidPosition = $SpawningArea/SpawnPosition.position
-	var AsteroidDirection = AsteroidPosition.angle_to_point($Player.position) + randf_range(-PI/5,PI/5)
+	var AsteroidDirection = AsteroidPosition.angle_to_point($Player.position) + randf_range(-PI/3,PI/3)
 	var Asteroid = ASTEROID.instantiate()
 	self.add_child(Asteroid)
 	Asteroid.position = AsteroidPosition

@@ -8,7 +8,7 @@ extends CharacterBody2D
 var Lives = 3
 var Invincible = false
 const BULLET = preload("uid://b5wsdkyge037e")
-
+var canshoot = true
 
 #Turn left/right and move forward/backward
 
@@ -26,8 +26,11 @@ func DirectionalMovement(delta):
 
 func _physics_process(delta):
 	DirectionalMovement(delta)
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_pressed("shoot") and canshoot:
 		ShootBullets()
+		canshoot = false
+		await get_tree().create_timer(Manager.attackspeed).timeout
+		canshoot = true
 	move_and_slide()
 
 func ShootBullets(direction = position.direction_to(get_global_mouse_position())):
