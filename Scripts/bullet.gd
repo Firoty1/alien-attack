@@ -15,7 +15,7 @@ func _physics_process(delta):
 		position += velocity
 
 
-func Hit(ThingHit):
+func Hit(_ThingHit):
 	if Pierces == 0:
 		print("boom")
 		queue_free()
@@ -24,7 +24,7 @@ func Hit(ThingHit):
 		Pierces -= 1
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	await get_tree().create_timer(1).timeout
 	queue_free()
 	print("out")
