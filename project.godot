@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Manager="*uid://cessdef5fgel8"
+SkillManager="*uid://d3cnkgcxes7qu"
 
 [display]
 

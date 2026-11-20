@@ -4,12 +4,7 @@
 [ext_resource type="Theme" uid="uid://cpo1ogyye5r5w" path="res://Assets/SkillNode.tres" id="1_x7xtp"]
 
 [node name="SkillNode" type="Button" unique_id=190324013]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1132.0
-offset_bottom = -629.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 20.0
+offset_bottom = 19.0
 theme = ExtResource("1_x7xtp")
 script = ExtResource("1_tbjma")

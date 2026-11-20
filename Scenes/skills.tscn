@@ -19,8 +19,3 @@ offset_right = 275.936
 offset_bottom = 107.352
 theme_override_font_sizes/font_size = 50
 text = "SKILL TREE"
-
-[node name="Tree" type="Tree" parent="." unique_id=1334385732]
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 17.0

@@ -2,6 +2,7 @@ extends Node
 
 var Lv = 1
 var Points = 0
+var Speed = 300
 var bulletspeed = 1000
 var BulletPierce = 1
 #How long between each shot in seconds

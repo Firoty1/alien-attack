@@ -1,7 +1,6 @@
 extends Line2D
 
-@export var OriginSkill: NodePath
-@export var LockedSkill: NodePath
-
 func ready():
-	OriginSkill.Unlocked.connect(LockedSkill.CheckUnlock)
+	var Origin = get_meta("OriginSkill")
+	var Locked = get_meta("LockedSkill")
+	Origin.Unlocked.connect(Locked.CheckUnlock)

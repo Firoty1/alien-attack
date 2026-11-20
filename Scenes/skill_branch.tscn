@@ -4,5 +4,5 @@
 
 [node name="SkillBranch" type="Line2D" unique_id=446988277]
 script = ExtResource("1_o4urn")
-OriginSkill = null
-LockedSkill = null
+metadata/OriginSkill = NodePath("")
+metadata/LockedSkill = NodePath("")
