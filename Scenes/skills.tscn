@@ -24,51 +24,110 @@ offset_bottom = 107.356
 theme_override_font_sizes/font_size = 50
 text = "SKILL TREE"
 
+[node name="Points" type="Label" parent="." unique_id=414155581]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 110.0
+offset_right = 247.0
+offset_bottom = 133.0
+text = "Skill Points Remaining: 1"
+
 [node name="Nodes" type="Node" parent="." unique_id=874654014]
 
 [node name="Speed" parent="Nodes" unique_id=190324013 instance=ExtResource("1_1n2b8")]
 offset_left = 100.0
-offset_top = 540.0
+offset_top = 500.0
 offset_right = 164.0
-offset_bottom = 604.0
+offset_bottom = 564.0
 tooltip_text = "Movement speed LV 1/5: 450"
 SkillType = "Stat"
 SkillName = "Speed"
+MaxLevel = 5
+Tooltip1 = "Movement Speed LV "
 
 [node name="AttackSpeed" parent="Nodes" unique_id=1824006504 instance=ExtResource("1_1n2b8")]
 offset_left = 300.0
-offset_top = 540.0
+offset_top = 500.0
 offset_right = 364.0
-offset_bottom = 604.0
+offset_bottom = 564.0
 tooltip_text = "Attack Speed LV 1/5: 2/s"
 SkillType = "Stat"
 SkillName = "AttackSpeed"
+MaxLevel = 5
+Tooltip1 = "Attack Speed LV "
 
 [node name="BulletSpeed" parent="Nodes" unique_id=1109203260 instance=ExtResource("1_1n2b8")]
 offset_left = 700.0
-offset_top = 540.0
+offset_top = 500.0
 offset_right = 764.0
-offset_bottom = 604.0
+offset_bottom = 564.0
 tooltip_text = "Bullet Speed LV 1/5: 1000"
 SkillType = "Stat"
 SkillName = "BulletSpeed"
+MaxLevel = 5
+Tooltip1 = "Bullet Speed LV "
 
 [node name="Pierces" parent="Nodes" unique_id=317107884 instance=ExtResource("1_1n2b8")]
 offset_left = 500.0
-offset_top = 540.0
+offset_top = 500.0
 offset_right = 564.0
-offset_bottom = 604.0
+offset_bottom = 564.0
 tooltip_text = "Pierces LV 1/3: 0"
 SkillType = "Stat"
 SkillName = "BulletPierces"
+MaxLevel = 3
+Tooltip1 = "Pierces LV "
 
 [node name="PointsMultiplier" parent="Nodes" unique_id=1916379516 instance=ExtResource("1_1n2b8")]
 offset_left = 900.0
-offset_top = 540.0
+offset_top = 500.0
 offset_right = 964.0
-offset_bottom = 604.0
+offset_bottom = 564.0
 tooltip_text = "Point Multiplier LV1/5: 1x"
 SkillType = "Stat"
 SkillName = "PointsMult"
+MaxLevel = 5
+Tooltip1 = "Points Multiplier LV "
+
+[node name="Life" parent="Nodes" unique_id=915785904 instance=ExtResource("1_1n2b8")]
+offset_left = 500.0
+offset_top = 200.0
+offset_right = 564.0
+offset_bottom = 264.0
+SkillType = "Stat"
+SkillName = "Life"
+MaxLevel = 3
+Tooltip1 = "Lives LV "
+
+[node name="Explosion" parent="Nodes" unique_id=556490487 instance=ExtResource("1_1n2b8")]
+offset_left = 400.0
+offset_top = 350.0
+offset_right = 464.0
+offset_bottom = 414.0
+SkillType = "Ability"
+SkillName = "Explosion"
+Tooltip1 = "Explosion LV "
+Tooltip2 = " | Creates an explosion around you when you lose a life"
 
 [node name="Branches" type="Node" parent="." unique_id=298902326]
+
+[node name="SkillNode3" parent="." unique_id=1639268255 instance=ExtResource("1_1n2b8")]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 408.0
+offset_right = 658.0
+offset_bottom = 472.0
+
+[node name="SkillNode4" parent="." unique_id=1917365307 instance=ExtResource("1_1n2b8")]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 206.0
+offset_right = 453.0
+offset_bottom = 270.0
+
+[node name="SkillNode5" parent="." unique_id=1848144017 instance=ExtResource("1_1n2b8")]
+layout_mode = 0
+offset_left = 615.0
+offset_top = 222.0
+offset_right = 679.0
+offset_bottom = 286.0

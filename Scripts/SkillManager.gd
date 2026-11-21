@@ -11,8 +11,8 @@ var PointsMult = 1
 
 func StatUpgrade(Stat):
 	if Stat == "Speed":
-		Speed += 25
-	elif Stat == "BulletPierce":
+		Speed += 50
+	elif Stat == "BulletPierces":
 		BulletPierce += 1
 	elif Stat == "AttackSpeed":
 		attackspeed -= .05
@@ -27,3 +27,19 @@ func StatUpgrade(Stat):
 
 func AbilityUnlock(Ability):
 	pass
+
+func GetStat(Stat):
+	if Stat == "Speed":
+		return Speed
+	elif Stat == "BulletPierces":
+		return BulletPierce 
+	elif Stat == "AttackSpeed":
+		return attackspeed 
+	elif Stat == "BulletSpeed":
+		return bulletspeed 
+	elif Stat == "Bullets":
+		return Bullets 
+	elif Stat == "Life":
+		return Lives 
+	elif Stat == "PointsMult":
+		return PointsMult
