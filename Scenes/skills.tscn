@@ -106,8 +106,9 @@ offset_right = 464.0
 offset_bottom = 414.0
 SkillType = "Ability"
 SkillName = "Explosion"
+MaxLevel = 3
 Tooltip1 = "Explosion LV "
-Tooltip2 = " | Creates an explosion around you when you lose a life"
+Tooltip2 = " | Creates an explosion around you when yourself when activated or when you lose a life"
 
 [node name="Branches" type="Node" parent="." unique_id=298902326]
 

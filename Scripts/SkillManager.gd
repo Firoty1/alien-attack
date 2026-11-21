@@ -8,6 +8,9 @@ var attackspeed = .5
 var Bullets = 2
 var Lives = 1
 var PointsMult = 1
+var Explosion = true
+var ExplosionBullets = 8
+
 
 func StatUpgrade(Stat):
 	if Stat == "Speed":
@@ -26,7 +29,12 @@ func StatUpgrade(Stat):
 		PointsMult += .5
 
 func AbilityUnlock(Ability):
-	pass
+	if Ability == "Explosion":
+		if Explosion:
+			ExplosionBullets += 4
+		else:
+			Explosion = true
+			ExplosionBullets = 8
 
 func GetStat(Stat):
 	if Stat == "Speed":
@@ -43,3 +51,5 @@ func GetStat(Stat):
 		return Lives 
 	elif Stat == "PointsMult":
 		return PointsMult
+	elif Stat == "Explosion":
+		return ExplosionBullets

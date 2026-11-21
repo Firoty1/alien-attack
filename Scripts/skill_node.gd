@@ -4,7 +4,7 @@ extends Button
 var Unlocked = false
 @export var SkillType: String
 @export var SkillName: String
-var Level = 1
+var Level = 0
 @export var MaxLevel: int
 @export var Tooltip1: String
 @export var Tooltip2: String
@@ -43,4 +43,4 @@ func AddLevel():
 	Level += 1
 	Unlocked = true
 	Stat = SkillManager.GetStat(SkillName) if SkillName != "AttackSpeed" else 1/SkillManager.GetStat(SkillName)
-	tooltip_text = Tooltip1 + str(Level) + "/" + str(MaxLevel) + ": " + str(Stat)
+	tooltip_text = Tooltip1 + str(Level) + "/" + str(MaxLevel) + ": " + str(Stat) + Tooltip2
