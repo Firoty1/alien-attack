@@ -2,8 +2,10 @@ extends Area2D
 
 @export var MinSpeed: int
 @export var MaxSpeed: int
+@export var Points: int
 var Speed
 var spawned = false
+
 func _ready():
 	Speed = randi_range(MinSpeed,MaxSpeed)
 
@@ -25,5 +27,5 @@ func _on_area_entered(_area):
 
 func split():
 	#change if we have time
-	Manager.Points += 10
+	Manager.Points += Points * SkillManager.PointsMult
 	queue_free()

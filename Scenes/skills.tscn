@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://dcvc78gg34yt"]
 
+[ext_resource type="PackedScene" uid="uid://bynfw545tkfq8" path="res://Scenes/skill_node.tscn" id="1_1n2b8"]
+[ext_resource type="Script" uid="uid://bewdaqa17d06g" path="res://Scenes/skills.gd" id="1_kq8fu"]
+
 [node name="skills" type="Control" unique_id=944909823]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kq8fu")
 
 [node name="title" type="Label" parent="." unique_id=335022658]
 layout_mode = 1
@@ -16,6 +20,55 @@ anchor_bottom = 0.001
 offset_left = 26.0
 offset_top = 39.0
 offset_right = 275.936
-offset_bottom = 107.352
+offset_bottom = 107.356
 theme_override_font_sizes/font_size = 50
 text = "SKILL TREE"
+
+[node name="Nodes" type="Node" parent="." unique_id=874654014]
+
+[node name="Speed" parent="Nodes" unique_id=190324013 instance=ExtResource("1_1n2b8")]
+offset_left = 100.0
+offset_top = 540.0
+offset_right = 164.0
+offset_bottom = 604.0
+tooltip_text = "Movement speed LV 1/5: 450"
+SkillType = "Stat"
+SkillName = "Speed"
+
+[node name="AttackSpeed" parent="Nodes" unique_id=1824006504 instance=ExtResource("1_1n2b8")]
+offset_left = 300.0
+offset_top = 540.0
+offset_right = 364.0
+offset_bottom = 604.0
+tooltip_text = "Attack Speed LV 1/5: 2/s"
+SkillType = "Stat"
+SkillName = "AttackSpeed"
+
+[node name="BulletSpeed" parent="Nodes" unique_id=1109203260 instance=ExtResource("1_1n2b8")]
+offset_left = 700.0
+offset_top = 540.0
+offset_right = 764.0
+offset_bottom = 604.0
+tooltip_text = "Bullet Speed LV 1/5: 1000"
+SkillType = "Stat"
+SkillName = "BulletSpeed"
+
+[node name="Pierces" parent="Nodes" unique_id=317107884 instance=ExtResource("1_1n2b8")]
+offset_left = 500.0
+offset_top = 540.0
+offset_right = 564.0
+offset_bottom = 604.0
+tooltip_text = "Pierces LV 1/3: 0"
+SkillType = "Stat"
+SkillName = "BulletPierces"
+
+[node name="PointsMultiplier" parent="Nodes" unique_id=1916379516 instance=ExtResource("1_1n2b8")]
+offset_left = 900.0
+offset_top = 540.0
+offset_right = 964.0
+offset_bottom = 604.0
+tooltip_text = "Point Multiplier LV1/5: 1x"
+SkillType = "Stat"
+SkillName = "PointsMult"
+
+[node name="Branches" type="Node" parent="." unique_id=298902326]
