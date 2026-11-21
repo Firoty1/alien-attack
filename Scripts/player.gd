@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var acceleration: float
-@export var max_speed: float
+var max_speed
 @export var rotation_speed: float
 #Make TurnOrDirectionalMovement Turn for turn movement and Directional for directional movement
 @export var TurnOrDirectionalMovement: String
@@ -10,9 +10,12 @@ var Invincible = false
 const BULLET = preload("uid://b5wsdkyge037e")
 var canshoot = true
 
-#Turn left/right and move forward/backward
 
-#wasd movement
+func _ready():
+	max_speed = SkillManager.Speed
+	Lives = SkillManager.Lives
+	
+
 func DirectionalMovement(delta):
 	var direction = Input.get_vector("left","right","up","down")
 	velocity = direction * max_speed * delta * 75
@@ -27,20 +30,24 @@ func DirectionalMovement(delta):
 func _physics_process(delta):
 	DirectionalMovement(delta)
 	if Input.is_action_pressed("shoot") and canshoot:
-		ShootBullets()
+		ShootBullets(1, SkillManager.Bullets)
 		canshoot = false
-		await get_tree().create_timer(Manager.attackspeed).timeout
+		await get_tree().create_timer(SkillManager.attackspeed).timeout
 		canshoot = true
 	move_and_slide()
 
-func ShootBullets(direction = position.direction_to(get_global_mouse_position())):
-	var bullets = BULLET.instantiate()
-	get_parent().add_child(bullets)
-	bullets.Speed =  Manager.bulletspeed
-	bullets.position = position
-	bullets.direction = direction
-	bullets.Pierces = Manager.BulletPierce
-	bullets.Shoot()
+#Type of 1 means bullets from guns, Type of 2 means bullets from center
+func ShootBullets(Type,Amount,direction = position.direction_to(get_global_mouse_position())):
+	if Type == 1:
+		for i in Amount:
+			var SpawnPosition = $Gun1.global_position if fmod(i, 2) == 0 else $Gun2.global_position
+			var bullets = BULLET.instantiate()
+			get_parent().add_child(bullets)
+			bullets.Speed =  SkillManager.bulletspeed
+			bullets.position = SpawnPosition
+			bullets.direction = direction
+			bullets.Pierces = SkillManager.BulletPierce
+			bullets.Shoot()
 
 func HitObstacle(_area):
 	Lives -= 1
