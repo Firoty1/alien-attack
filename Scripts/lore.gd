@@ -8,7 +8,7 @@ func _ready():
 		$Button.text = "Ok... lets try again."
 
 func _process(delta: float) -> void:
-	$RichTextLabel.visible_ratio += .004
+	$RichTextLabel.visible_ratio += .01
 	if $RichTextLabel.visible_ratio == 1:
 		$Button.visible = true
 		$Label.visible = false

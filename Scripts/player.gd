@@ -10,11 +10,14 @@ var Invincible = false
 const BULLET = preload("uid://b5wsdkyge037e")
 var canshoot = true
 var canExplode
+var CanMove = true
+var CanDash
 
 func _ready():
 	max_speed = SkillManager.Speed
 	Lives = SkillManager.Lives
 	canExplode = SkillManager.Explosion
+	CanDash = SkillManager.Dash
 
 func DirectionalMovement(delta):
 	var direction = Input.get_vector("left","right","up","down")
@@ -28,12 +31,18 @@ func DirectionalMovement(delta):
 		$Sprite2D.animation = "Moving"
 
 func _physics_process(delta):
-	DirectionalMovement(delta)
+	if CanMove:
+		DirectionalMovement(delta)
 	if Input.is_action_pressed("shoot") and canshoot:
 		ShootBullets(1, SkillManager.Bullets)
 		canshoot = false
 		await get_tree().create_timer(SkillManager.attackspeed).timeout
 		canshoot = true
+	if Input.is_action_pressed("Dash") and CanDash:
+		Dash()
+		CanDash = false
+		await  get_tree().create_timer(SkillManager.DashCooldown).timeout
+		CanDash = true
 	if Input.is_action_pressed("Explosion") and canExplode:
 		Explosion()
 		canExplode = false
@@ -46,6 +55,14 @@ func Explosion():
 	for i in SkillManager.ExplosionBullets:
 		var direction = Vector2.from_angle(2*PI/SkillManager.ExplosionBullets * i)
 		ShootBullets(2, 1, direction)
+
+func Dash():
+	
+	CanMove = false
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", position + (Vector2(0,-1).rotated(rotation) * SkillManager.Speed/ 2) , .1)
+	await tween.finished
+	CanMove = true
 
 #Type of 1 means bullets from guns, Type of 2 means bullets from center
 func ShootBullets(Type,Amount,direction = position.direction_to(get_global_mouse_position())):
@@ -74,6 +91,8 @@ func HitObstacle(_area):
 	Lives -= 1
 	if Lives == 0:
 		Manager.SceneChange("End")
+	if SkillManager.Explosion:
+		Explosion()
 	$BlinkTimer.start()
 	$InvincibilityTimer.start()
 	Invincible = true

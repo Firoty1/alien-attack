@@ -108,27 +108,33 @@ SkillType = "Ability"
 SkillName = "Explosion"
 MaxLevel = 3
 Tooltip1 = "Explosion LV "
-Tooltip2 = " | Creates an explosion around you when yourself when activated or when you lose a life"
+Tooltip2 = " bullets | Creates an explosion around you when yourself when activated or when you lose a life"
+
+[node name="Dash" parent="Nodes" unique_id=1639268255 instance=ExtResource("1_1n2b8")]
+offset_left = 600.0
+offset_top = 350.0
+offset_right = 664.0
+offset_bottom = 414.0
+SkillType = "Ability"
+SkillName = "Dash"
+MaxLevel = 6
+Tooltip1 = "Dash LV "
+Tooltip2 = " seconds cooldown | Quickly dash forwards *NOT INVINCIBLE*"
+
+[node name="Homing" parent="Nodes" unique_id=1917365307 instance=ExtResource("1_1n2b8")]
+offset_left = 300.0
+offset_top = 200.0
+offset_right = 364.0
+offset_bottom = 264.0
+SkillType = "Stat"
+SkillName = "Homing"
+MaxLevel = 3
+Tooltip1 = "Homing LV "
+
+[node name="SkillNode5" parent="Nodes" unique_id=1848144017 instance=ExtResource("1_1n2b8")]
+offset_left = 700.0
+offset_top = 200.0
+offset_right = 764.0
+offset_bottom = 264.0
 
 [node name="Branches" type="Node" parent="." unique_id=298902326]
-
-[node name="SkillNode3" parent="." unique_id=1639268255 instance=ExtResource("1_1n2b8")]
-layout_mode = 0
-offset_left = 594.0
-offset_top = 408.0
-offset_right = 658.0
-offset_bottom = 472.0
-
-[node name="SkillNode4" parent="." unique_id=1917365307 instance=ExtResource("1_1n2b8")]
-layout_mode = 0
-offset_left = 389.0
-offset_top = 206.0
-offset_right = 453.0
-offset_bottom = 270.0
-
-[node name="SkillNode5" parent="." unique_id=1848144017 instance=ExtResource("1_1n2b8")]
-layout_mode = 0
-offset_left = 615.0
-offset_top = 222.0
-offset_right = 679.0
-offset_bottom = 286.0

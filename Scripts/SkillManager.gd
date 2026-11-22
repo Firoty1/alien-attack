@@ -6,11 +6,13 @@ var BulletPierce = 0
 #How long between each shot in seconds
 var attackspeed = .5
 var Bullets = 2
-var Lives = 1
+var Lives = 3
 var PointsMult = 1
-var Explosion = true
-var ExplosionBullets = 8
-
+var Explosion = false
+var ExplosionBullets = 0
+var Dash = false
+var DashCooldown = 10
+var Homing = "None"
 
 func StatUpgrade(Stat):
 	if Stat == "Speed":
@@ -27,6 +29,10 @@ func StatUpgrade(Stat):
 		Lives += 1
 	elif Stat == "PointsMult":
 		PointsMult += .5
+	elif Stat == "Homing":
+		var Levels = ["None", "Weak", "Moderate", "Strong"]
+		var NewLevel = Levels.find(Homing) + 1
+		Homing = Levels.get(NewLevel)
 
 func AbilityUnlock(Ability):
 	if Ability == "Explosion":
@@ -35,6 +41,11 @@ func AbilityUnlock(Ability):
 		else:
 			Explosion = true
 			ExplosionBullets = 8
+	elif Ability == "Dash":
+		if Dash:
+			DashCooldown -= 1
+		else:
+			Dash = true
 
 func GetStat(Stat):
 	if Stat == "Speed":
@@ -53,3 +64,7 @@ func GetStat(Stat):
 		return PointsMult
 	elif Stat == "Explosion":
 		return ExplosionBullets
+	elif Stat == "Dash":
+		return DashCooldown
+	elif Stat == "Homing":
+		return Homing
