@@ -1,6 +1,7 @@
 extends Line2D
 
-func ready():
-	var Origin = get_meta("OriginSkill")
-	var Locked = get_meta("LockedSkill")
-	Origin.Unlocked.connect(Locked.CheckUnlock)
+@export var Origin: Node
+@export var Locked: Node
+
+func _ready():
+	Origin.SkillUnlocked.connect(Locked.CheckUnlock)

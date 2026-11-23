@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bynfw545tkfq8" path="res://Scenes/skill_node.tscn" id="1_1n2b8"]
 [ext_resource type="Script" uid="uid://bewdaqa17d06g" path="res://Scenes/skills.gd" id="1_kq8fu"]
+[ext_resource type="PackedScene" uid="uid://b8yd2lqbp4j3g" path="res://Scenes/skill_branch.tscn" id="2_5ihe6"]
 
 [node name="skills" type="Control" unique_id=944909823]
 layout_mode = 3
@@ -90,10 +91,12 @@ MaxLevel = 5
 Tooltip1 = "Points Multiplier LV "
 
 [node name="Life" parent="Nodes" unique_id=915785904 instance=ExtResource("1_1n2b8")]
-offset_left = 500.0
+offset_left = 600.0
 offset_top = 200.0
-offset_right = 564.0
+offset_right = 664.0
 offset_bottom = 264.0
+disabled = true
+Requirements = [NodePath("../Dash")]
 SkillType = "Stat"
 SkillName = "Life"
 MaxLevel = 3
@@ -104,6 +107,8 @@ offset_left = 400.0
 offset_top = 350.0
 offset_right = 464.0
 offset_bottom = 414.0
+disabled = true
+Requirements = [NodePath("../Pierces")]
 SkillType = "Ability"
 SkillName = "Explosion"
 MaxLevel = 3
@@ -115,6 +120,8 @@ offset_left = 600.0
 offset_top = 350.0
 offset_right = 664.0
 offset_bottom = 414.0
+disabled = true
+Requirements = [NodePath("../Pierces")]
 SkillType = "Ability"
 SkillName = "Dash"
 MaxLevel = 6
@@ -122,19 +129,43 @@ Tooltip1 = "Dash LV "
 Tooltip2 = " seconds cooldown | Quickly dash forwards *NOT INVINCIBLE*"
 
 [node name="Homing" parent="Nodes" unique_id=1917365307 instance=ExtResource("1_1n2b8")]
-offset_left = 300.0
+offset_left = 400.0
 offset_top = 200.0
-offset_right = 364.0
+offset_right = 464.0
 offset_bottom = 264.0
+disabled = true
+Requirements = [NodePath("../Explosion")]
 SkillType = "Stat"
 SkillName = "Homing"
 MaxLevel = 3
 Tooltip1 = "Homing LV "
 
-[node name="SkillNode5" parent="Nodes" unique_id=1848144017 instance=ExtResource("1_1n2b8")]
-offset_left = 700.0
-offset_top = 200.0
-offset_right = 764.0
-offset_bottom = 264.0
-
 [node name="Branches" type="Node" parent="." unique_id=298902326]
+
+[node name="SkillBranch" parent="Branches" unique_id=446988277 node_paths=PackedStringArray("Origin", "Locked") instance=ExtResource("2_5ihe6")]
+points = PackedVector2Array(530, 542, 431, 383)
+Origin = NodePath("../../Nodes/Pierces")
+Locked = NodePath("../../Nodes/Explosion")
+metadata/OriginSkill = NodePath("../../Nodes/Pierces")
+metadata/LockedSkill = NodePath("../../Nodes/Explosion")
+
+[node name="SkillBranch2" parent="Branches" unique_id=1581041201 node_paths=PackedStringArray("Origin", "Locked") instance=ExtResource("2_5ihe6")]
+points = PackedVector2Array(536, 534, 636, 381)
+Origin = NodePath("../../Nodes/Pierces")
+Locked = NodePath("../../Nodes/Dash")
+metadata/OriginSkill = NodePath("../../Nodes/Pierces")
+metadata/LockedSkill = NodePath("../../Nodes/Dash")
+
+[node name="SkillBranch3" parent="Branches" unique_id=747588138 node_paths=PackedStringArray("Origin", "Locked") instance=ExtResource("2_5ihe6")]
+points = PackedVector2Array(631, 384, 631, 234)
+Origin = NodePath("../../Nodes/Dash")
+Locked = NodePath("../../Nodes/Life")
+metadata/OriginSkill = NodePath("../../Nodes/Dash")
+metadata/LockedSkill = NodePath("../../Nodes/Life")
+
+[node name="SkillBranch4" parent="Branches" unique_id=1639899638 node_paths=PackedStringArray("Origin", "Locked") instance=ExtResource("2_5ihe6")]
+points = PackedVector2Array(429, 390, 429, 229)
+Origin = NodePath("../../Nodes/Explosion")
+Locked = NodePath("../../Nodes/Homing")
+metadata/OriginSkill = NodePath("../../Nodes/Explosion")
+metadata/LockedSkill = NodePath("../../Nodes/Homing")

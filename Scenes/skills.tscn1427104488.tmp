@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://dcvc78gg34yt"]
+
+[ext_resource type="PackedScene" uid="uid://bynfw545tkfq8" path="res://Scenes/skill_node.tscn" id="1_1n2b8"]
+[ext_resource type="Script" uid="uid://bewdaqa17d06g" path="res://Scenes/skills.gd" id="1_kq8fu"]
+[ext_resource type="PackedScene" uid="uid://b8yd2lqbp4j3g" path="res://Scenes/skill_branch.tscn" id="2_5ihe6"]
+
+[node name="skills" type="Control" unique_id=944909823]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kq8fu")
+
+[node name="title" type="Label" parent="." unique_id=335022658]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.007
+anchor_bottom = 0.001
+offset_left = 26.0
+offset_top = 39.0
+offset_right = 275.936
+offset_bottom = 107.356
+theme_override_font_sizes/font_size = 50
+text = "SKILL TREE"
+
+[node name="Points" type="Label" parent="." unique_id=414155581]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 110.0
+offset_right = 247.0
+offset_bottom = 133.0
+text = "Skill Points Remaining: 1"
+
+[node name="Nodes" type="Node" parent="." unique_id=874654014]
+
+[node name="Speed" parent="Nodes" unique_id=190324013 instance=ExtResource("1_1n2b8")]
+offset_left = 100.0
+offset_top = 500.0
+offset_right = 164.0
+offset_bottom = 564.0
+tooltip_text = "Movement speed LV 1/5: 450"
+SkillType = "Stat"
+SkillName = "Speed"
+MaxLevel = 5
+Tooltip1 = "Movement Speed LV "
+
+[node name="AttackSpeed" parent="Nodes" unique_id=1824006504 instance=ExtResource("1_1n2b8")]
+offset_left = 300.0
+offset_top = 500.0
+offset_right = 364.0
+offset_bottom = 564.0
+tooltip_text = "Attack Speed LV 1/5: 2/s"
+SkillType = "Stat"
+SkillName = "AttackSpeed"
+MaxLevel = 5
+Tooltip1 = "Attack Speed LV "
+
+[node name="BulletSpeed" parent="Nodes" unique_id=1109203260 instance=ExtResource("1_1n2b8")]
+offset_left = 700.0
+offset_top = 500.0
+offset_right = 764.0
+offset_bottom = 564.0
+tooltip_text = "Bullet Speed LV 1/5: 1000"
+SkillType = "Stat"
+SkillName = "BulletSpeed"
+MaxLevel = 5
+Tooltip1 = "Bullet Speed LV "
+
+[node name="Pierces" parent="Nodes" unique_id=317107884 instance=ExtResource("1_1n2b8")]
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 564.0
+offset_bottom = 564.0
+tooltip_text = "Pierces LV 1/3: 0"
+SkillType = "Stat"
+SkillName = "BulletPierces"
+MaxLevel = 3
+Tooltip1 = "Pierces LV "
+
+[node name="PointsMultiplier" parent="Nodes" unique_id=1916379516 instance=ExtResource("1_1n2b8")]
+offset_left = 900.0
+offset_top = 500.0
+offset_right = 964.0
+offset_bottom = 564.0
+tooltip_text = "Point Multiplier LV1/5: 1x"
+SkillType = "Stat"
+SkillName = "PointsMult"
+MaxLevel = 5
+Tooltip1 = "Points Multiplier LV "
+
+[node name="Life" parent="Nodes" unique_id=915785904 instance=ExtResource("1_1n2b8")]
+offset_left = 600.0
+offset_top = 200.0
+offset_right = 664.0
+offset_bottom = 264.0
+disabled = true
+Requirements = [NodePath("../Dash")]
+SkillType = "Stat"
+SkillName = "Life"
+MaxLevel = 3
+Tooltip1 = "Lives LV "
+
+[node name="Explosion" parent="Nodes" unique_id=556490487 instance=ExtResource("1_1n2b8")]
+offset_left = 400.0
+offset_top = 350.0
+offset_right = 464.0
+offset_bottom = 414.0
+disabled = true
+Requirements = [NodePath("../Pierces")]
+SkillType = "Ability"
+SkillName = "Explosion"
+MaxLevel = 3
+Tooltip1 = "Explosion LV "
+Tooltip2 = " bullets | Creates an explosion around you when yourself when activated or when you lose a life"
+
+[node name="Dash" parent="Nodes" unique_id=1639268255 instance=ExtResource("1_1n2b8")]
+offset_left = 600.0
+offset_top = 350.0
+offset_right = 664.0
+offset_bottom = 414.0
+disabled = true
+Requirements = [NodePath("../Pierces")]
+SkillType = "Ability"
+SkillName = "Dash"
+MaxLevel = 6
+Tooltip1 = "Dash LV "
+Tooltip2 = " seconds cooldown | Quickly dash forwards *NOT INVINCIBLE*"
+
+[node name="Homing" parent="Nodes" unique_id=1917365307 instance=ExtResource("1_1n2b8")]
+offset_left = 400.0
+offset_top = 200.0
+offset_right = 464.0
+offset_bottom = 264.0
+disabled = true
+Requirements = [NodePath("../Explosion")]
+SkillType = "Stat"
+SkillName = "Homing"
+MaxLevel = 3
+Tooltip1 = "Homing LV "
+
+[node name="Branches" type="Node" parent="." unique_id=298902326]
+
+[node name="SkillBranch" parent="Branches" unique_id=446988277 instance=ExtResource("2_5ihe6")]
+points = PackedVector2Array(530, 542, 431, 383)
+metadata/OriginSkill = NodePath("../../Nodes/Pierces")
+metadata/LockedSkill = NodePath("../../Nodes/Explosion")
+
+[node name="SkillBranch2" parent="Branches" unique_id=1581041201 instance=ExtResource("2_5ihe6")]
+points = PackedVector2Array(536, 534, 636, 381)
+metadata/OriginSkill = NodePath("../../Nodes/Pierces")
+metadata/LockedSkill = NodePath("../../Nodes/Dash")
+
+[node name="SkillBranch3" parent="Branches" unique_id=747588138 instance=ExtResource("2_5ihe6")]
+points = PackedVector2Array(631, 384, 631, 234)
+metadata/OriginSkill = NodePath("../../Nodes/Dash")
+metadata/LockedSkill = NodePath("../../Nodes/Life")
+
+[node name="SkillBranch4" parent="Branches" unique_id=1639899638 instance=ExtResource("2_5ihe6")]
+points = PackedVector2Array(429, 390, 429, 229)
+metadata/OriginSkill = NodePath("../../Nodes/Explosion")
+metadata/LockedSkill = NodePath("../../Nodes/Homing")

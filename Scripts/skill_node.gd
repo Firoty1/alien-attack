@@ -10,6 +10,7 @@ var Level = 0
 @export var Tooltip2: String
 var Stat
 signal Pressed
+signal SkillUnlocked
 
 func _ready():
 	await get_tree().create_timer(.03).timeout
@@ -18,8 +19,10 @@ func _ready():
 	tooltip_text = Tooltip1 + str(Level) + "/" + str(MaxLevel) + ": " + str(Stat) + Tooltip2
 
 func CheckUnlock():
+	print("a")
 	var Unlock = true
 	for i in Requirements:
+		i = get_node(i)
 		if !i.Unlocked:
 			Unlock = false
 	if Unlock:
@@ -37,6 +40,9 @@ func _on_pressed():
 		else:
 			SkillManager.AbilityUnlock(SkillName)
 		AddLevel()
+		await get_tree().create_timer(.05).timeout
+		if Level == 1:
+			SkillUnlocked.emit()
 
 
 func AddLevel():

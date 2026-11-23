@@ -3,6 +3,5 @@
 [ext_resource type="Script" uid="uid://bnc2hwh78l18c" path="res://Scripts/skill_branch.gd" id="1_o4urn"]
 
 [node name="SkillBranch" type="Line2D" unique_id=446988277]
+z_index = -1
 script = ExtResource("1_o4urn")
-metadata/OriginSkill = NodePath("")
-metadata/LockedSkill = NodePath("")
