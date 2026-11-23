@@ -31,4 +31,9 @@ collision_layer = 8
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Despawn" unique_id=2002285370]
 polygon = PackedVector2Array(1169, -17, 1169, 665, -17, 665, -17, -17, -16, -17, -16, -16, -16, 664, 1168, 664, 1168, -16, -16, -17, -16, -16)
 
+[node name="WaveTimer" type="Timer" parent="." unique_id=572614973]
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="WaveEnd"]

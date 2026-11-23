@@ -39,3 +39,7 @@ func SpawnRocket():
 	self.add_child(Asteroid)
 	Asteroid.position = AsteroidPosition
 	Asteroid.rotation = AsteroidDirection
+
+
+func WaveEnd():
+	Manager.SceneChange("Skill")

@@ -12,9 +12,10 @@ var Explosion = false
 var ExplosionBullets = 0
 var Dash = false
 var DashCooldown = 10
-var Homing = "None"
+var Upgrades = []
 
 func StatUpgrade(Stat):
+	Upgrades.append(Stat)
 	if Stat == "Speed":
 		Speed += 50
 	elif Stat == "BulletPierces":
@@ -29,12 +30,10 @@ func StatUpgrade(Stat):
 		Lives += 1
 	elif Stat == "PointsMult":
 		PointsMult += .5
-	elif Stat == "Homing":
-		var Levels = ["None", "Weak", "Moderate", "Strong"]
-		var NewLevel = Levels.find(Homing) + 1
-		Homing = Levels.get(NewLevel)
+
 
 func AbilityUnlock(Ability):
+	Upgrades.append(Ability)
 	if Ability == "Explosion":
 		if Explosion:
 			ExplosionBullets += 4
@@ -66,5 +65,3 @@ func GetStat(Stat):
 		return ExplosionBullets
 	elif Stat == "Dash":
 		return DashCooldown
-	elif Stat == "Homing":
-		return Homing

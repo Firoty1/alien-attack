@@ -91,12 +91,12 @@ MaxLevel = 5
 Tooltip1 = "Points Multiplier LV "
 
 [node name="Life" parent="Nodes" unique_id=915785904 instance=ExtResource("1_1n2b8")]
-offset_left = 600.0
+offset_left = 500.0
 offset_top = 200.0
-offset_right = 664.0
+offset_right = 564.0
 offset_bottom = 264.0
 disabled = true
-Requirements = [NodePath("../Dash")]
+Requirements = [NodePath("../Dash"), NodePath("../Explosion")]
 SkillType = "Stat"
 SkillName = "Life"
 MaxLevel = 3
@@ -128,18 +128,6 @@ MaxLevel = 6
 Tooltip1 = "Dash LV "
 Tooltip2 = " seconds cooldown | Quickly dash forwards *NOT INVINCIBLE*"
 
-[node name="Homing" parent="Nodes" unique_id=1917365307 instance=ExtResource("1_1n2b8")]
-offset_left = 400.0
-offset_top = 200.0
-offset_right = 464.0
-offset_bottom = 264.0
-disabled = true
-Requirements = [NodePath("../Explosion")]
-SkillType = "Stat"
-SkillName = "Homing"
-MaxLevel = 3
-Tooltip1 = "Homing LV "
-
 [node name="Branches" type="Node" parent="." unique_id=298902326]
 
 [node name="SkillBranch" parent="Branches" unique_id=446988277 node_paths=PackedStringArray("Origin", "Locked") instance=ExtResource("2_5ihe6")]
@@ -157,15 +145,25 @@ metadata/OriginSkill = NodePath("../../Nodes/Pierces")
 metadata/LockedSkill = NodePath("../../Nodes/Dash")
 
 [node name="SkillBranch3" parent="Branches" unique_id=747588138 node_paths=PackedStringArray("Origin", "Locked") instance=ExtResource("2_5ihe6")]
-points = PackedVector2Array(631, 384, 631, 234)
+points = PackedVector2Array(631, 384, 531, 230)
 Origin = NodePath("../../Nodes/Dash")
 Locked = NodePath("../../Nodes/Life")
 metadata/OriginSkill = NodePath("../../Nodes/Dash")
 metadata/LockedSkill = NodePath("../../Nodes/Life")
 
 [node name="SkillBranch4" parent="Branches" unique_id=1639899638 node_paths=PackedStringArray("Origin", "Locked") instance=ExtResource("2_5ihe6")]
-points = PackedVector2Array(429, 390, 429, 229)
+points = PackedVector2Array(429, 390, 531, 232)
 Origin = NodePath("../../Nodes/Explosion")
-Locked = NodePath("../../Nodes/Homing")
+Locked = NodePath("../../Nodes/Life")
 metadata/OriginSkill = NodePath("../../Nodes/Explosion")
-metadata/LockedSkill = NodePath("../../Nodes/Homing")
+metadata/LockedSkill = NodePath("")
+
+[node name="Button" type="Button" parent="." unique_id=1210244132]
+layout_mode = 0
+offset_left = 1004.0
+offset_top = 35.0
+offset_right = 1094.0
+offset_bottom = 66.0
+text = "Next wave"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

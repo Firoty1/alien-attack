@@ -17,14 +17,11 @@ func _physics_process(delta):
 
 func Hit(_ThingHit):
 	if Pierces == 0:
-		print("boom")
 		queue_free()
 	else:
-		print("P")
 		Pierces -= 1
 
 
 func _on_body_entered(_body):
 	await get_tree().create_timer(1).timeout
 	queue_free()
-	print("out")
