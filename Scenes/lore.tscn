@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://7u0jul6edpb5"]
+[gd_scene format=3 uid="uid://7u0jul6edpb5"]
 
 [ext_resource type="Script" uid="uid://bcg3irxbybm1q" path="res://Scripts/lore.gd" id="1_oqjcs"]
 
-[node name="lore" type="Control"]
+[node name="lore" type="Control" unique_id=1267907743]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,22 +11,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oqjcs")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2066496003]
 layout_mode = 0
 offset_left = 2.0
 offset_right = 1147.0
 offset_bottom = 523.0
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
 theme_override_font_sizes/bold_italics_font_size = 40
 theme_override_font_sizes/italics_font_size = 40
 theme_override_font_sizes/mono_font_size = 40
-theme_override_font_sizes/normal_font_size = 40
-theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
 text = "You are in a [b]spaceship[/b] that got [i]blown up[/i] by [b]the ghosts of magical aliens[/b] that you once slaughtered! Your crewmate is fixing it, but the aliens are slinging [b]asteroids[/b] at your ship, so you'll have to navigate around the asteroids. It'll take sixty seconds to reactivate the safety shields, but we'll probably need to repeat that process a few times due to alien interference. At least you'll get some cool buffs from it. Beware: the ghosts are [b]spooky[/b]!"
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1083301441]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -41,7 +41,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 70
 text = "CAN I LAUNCH IT ALREADY?"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1116153346]
 visible = false
 layout_mode = 1
 anchors_preset = 7

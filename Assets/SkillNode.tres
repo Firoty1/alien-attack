@@ -1,0 +1,22 @@
+[gd_resource type="Theme" format=3 uid="uid://cpo1ogyye5r5w"]
+
+[ext_resource type="Texture2D" uid="uid://cx1cpe1e72snj" path="res://Assets/SkillNode.png" id="1_h2y65"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7xtp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0s8cl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jn4uy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0i2rm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hhwjt"]
+
+[resource]
+Button/colors/icon_disabled_color = Color(0.2901961, 0.2901961, 0.2901961, 1)
+Button/icons/icon = ExtResource("1_h2y65")
+Button/styles/disabled = SubResource("StyleBoxEmpty_x7xtp")
+Button/styles/focus = SubResource("StyleBoxEmpty_0s8cl")
+Button/styles/hover = SubResource("StyleBoxEmpty_jn4uy")
+Button/styles/normal = SubResource("StyleBoxEmpty_0i2rm")
+Button/styles/pressed = SubResource("StyleBoxEmpty_hhwjt")

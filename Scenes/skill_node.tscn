@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bynfw545tkfq8"]
+
+[ext_resource type="Script" uid="uid://dhjpvl4labhyt" path="res://Scripts/skill_node.gd" id="1_tbjma"]
+[ext_resource type="Theme" uid="uid://cpo1ogyye5r5w" path="res://Assets/SkillNode.tres" id="1_x7xtp"]
+
+[node name="SkillNode" type="Button" unique_id=190324013]
+offset_right = 20.0
+offset_bottom = 19.0
+theme = ExtResource("1_x7xtp")
+script = ExtResource("1_tbjma")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

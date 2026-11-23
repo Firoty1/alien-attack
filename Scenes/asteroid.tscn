@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bu6ktknp000c5"]
 
-[ext_resource type="Texture2D" uid="uid://cy4qv5nbdxs8r" path="res://icon.svg" id="1_0tomg"]
 [ext_resource type="Script" uid="uid://dsqv7lq3sv5oj" path="res://Scripts/asteroid.gd" id="1_a2bka"]
+[ext_resource type="Texture2D" uid="uid://mlae15r4i77e" path="res://Assets/asteroid1.png" id="2_a2bka"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tomg"]
-size = Vector2(36, 36)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a2bka"]
+height = 28.055672
 
 [node name="Asteroid" type="Area2D" unique_id=1867598983]
 collision_layer = 2
@@ -12,14 +12,16 @@ collision_mask = 12
 script = ExtResource("1_a2bka")
 MinSpeed = 200
 MaxSpeed = 300
+Points = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1462793782]
-modulate = Color(0.17641911, 0.17641908, 0.17641908, 1)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_0tomg")
+rotation = -1.2566371
+texture = ExtResource("2_a2bka")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1978991209]
-shape = SubResource("RectangleShape2D_0tomg")
+position = Vector2(0, 4)
+rotation = 1.4660766
+shape = SubResource("CapsuleShape2D_a2bka")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
